@@ -11,8 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileStorage implements Storage {
-    String fileName;
-    User update;
+    private String fileName;
     private int counter = 1;
     private List< User > usersList = new ArrayList< User >();
 
@@ -49,8 +48,8 @@ public class FileStorage implements Storage {
     }
 
     public void removeUserByName(String name) {
-        for(User user : usersList){
-            if(user.getName().equals(name)){
+        for (User user : usersList) {
+            if (user.getName().equals(name)) {
                 usersList.remove(user);
                 break;
             }
@@ -66,16 +65,22 @@ public class FileStorage implements Storage {
     }
 
     public void updateUser(User user) {
-        ///...
+        for (User users : usersList) {
+            if (users.getId() == user.getId()) {
+                users = user;
+                break;
+            }
+        }
+        saveToFile();
     }
 
     public User getUser(int id) {
-       for(User user : usersList){
-           if(user.getId()==id){
-               return user;
-           }
-       }
-       return null;
+        for (User user : usersList) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public List< User > getAllUsers() {
