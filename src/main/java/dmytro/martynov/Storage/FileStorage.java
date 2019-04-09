@@ -1,7 +1,9 @@
-package dmytro.martynov;
+package dmytro.martynov.Storage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dmytro.martynov.model.Storage;
+import dmytro.martynov.model.User;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -12,7 +14,7 @@ import java.util.List;
 
 public class FileStorage implements Storage {
     private String fileName;
-    private int counter = 1;
+    public static int counter = 1;
     private List< User > usersList = new ArrayList< User >();
 
     public FileStorage(String fileName) {

@@ -1,4 +1,6 @@
-package dmytro.martynov;
+package dmytro.martynov.model;
+
+import dmytro.martynov.model.User;
 
 import java.util.List;
 
